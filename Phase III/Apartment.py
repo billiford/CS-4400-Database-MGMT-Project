@@ -50,8 +50,6 @@ class myGUI:
                 database.execute_insert('''DELETE FROM USER WHERE Username = ? ''', (expiredPros,))
 
         #Update rent information
-
-        
         currentMonth = time.strftime("%B").upper()
         currentYear = today.year
         dateInfo = database.execute_select('''SELECT * FROM DATE WHERE Month = ? AND Year = ?''', (currentMonth,currentYear))
@@ -86,12 +84,6 @@ class myGUI:
                 newAmount = extraPay + currentAmount
                 database.execute_insert('''UPDATE PAY_RENT SET Amount = ? WHERE Ano = ? AND D_month = ? AND D_year = ?''', (newAmount, aptNo, theMonth, theYear))
 
-            
-
-
-
-
-        
         #Font Customizations
         self.checkboxDict = dict()
         self.customFont = tkFont.Font(family="Helvetica", size=20)
@@ -219,12 +211,6 @@ class myGUI:
         self.rentDefaulters.maxsize(horizontalPixel, 1600)
         self.rentDefaulters.withdraw()
 
-
-
-
-    
-        
-        
     #-------------------------------------------------------------- Login (Figure 1) ---------------------------------------------------------
     #GUI
     def GoBack(self):
@@ -375,7 +361,6 @@ class myGUI:
         else:
             print("Who is this?")
     
-      
     #-------------------------------------------------------------- New User Registration (Figure 2) ---------------------------------------------------------
     #GUI
     def UserRegistrationPage(self):
@@ -879,11 +864,6 @@ class myGUI:
         self.dropDownMonthMenu = OptionMenu(self.rent, self.dropDownMonth, *monthsList)
         dropDownCardMenu = OptionMenu(self.rent, self.dropDownCard, *cardList)
 
-        
-       
-
-        
-        
         dropDownDateMenu.grid(column = 2, row = 2, sticky = W)
         Label(self.rent,text = self.apartmentNumber, font = self.customFont13, background = '#E9EAED', pady = 10).grid(column = 2,row = 3, sticky = W)
         self.dropDownMonthMenu.grid(column = 2, row = 4, sticky = W)
@@ -931,16 +911,6 @@ class myGUI:
                 self.amountDue = 0
                 Label(self.rent,text = "XXXXXX", font = self.customFont13, background = '#E9EAED', foreground = '#E9EAED', pady = 10).grid(column = 2,row = 5, sticky = W)
                 Label(self.rent,text = self.amountDue, font = self.customFont13, background = '#E9EAED', pady = 10).grid(column = 2,row = 5, sticky = W)
-
-
-            
-            
-
-    
-    
-
-        
-
 
     def PayRentCheck(self):
         payYear = self.dropDownYear.get()
